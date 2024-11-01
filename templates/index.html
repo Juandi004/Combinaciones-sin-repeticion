@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Combinaciones</title>
+</head>
+<body>
+    <h1>Generador de Combinaciones sin Repetición</h1>
+    <form method="POST">
+        <label for="elementos">Elementos (separados por espacios):</label>
+        <input type="text" name="elementos" id="elementos" required>
+
+        <label for="longitud">Longitud de la combinación:</label>
+        <input type="number" name="longitud" id="longitud" min="1" required>
+
+        <button type="submit">Generar Combinaciones</button>
+    </form>
+
+    {% if combinaciones %}
+        <h2>Combinaciones:</h2>
+        <ul>
+            {% for comb in combinaciones %}
+                <li>{{ comb | join(", ") }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
